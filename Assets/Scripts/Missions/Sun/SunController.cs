@@ -23,8 +23,8 @@ public class SunController : MonoBehaviour
     /// </summary>
 
     int randomNumber; // Variable to store the random number
-    [SerializeField] float[] timeMission = new float[7] {3, 10, } ; // Array to store time for each mission
-    [SerializeField] float[] timerForStartTheMission = new float[7] {1, 10 } ; // Array to store time for each mission
+    [SerializeField] float[] timeMission = new float[7]; // Array to store time for each mission
+    [SerializeField] float[] timerForStartTheMission = new float[7]; // Array to store time for each mission
 
     void Awake()
     {

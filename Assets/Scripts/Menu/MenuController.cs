@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class MenuController : MonoBehaviour
 {
-    [SerializeField] private int indexScene;
+    [SerializeField] private byte indexScene;
     [SerializeField] private GameObject PainelMenu, PainelOptions, painelCredits;
 
     public void StartGame()
@@ -30,7 +30,7 @@ public class MenuController : MonoBehaviour
         PainelMenu.SetActive(false); // Hide the main menu panel
         painelCredits.SetActive(true); // Show the credits panel
     }
-    
+
     public void CloseCredits()
     {
         PainelMenu.SetActive(true); // Show the main menu panel

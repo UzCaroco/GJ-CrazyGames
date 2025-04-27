@@ -5,14 +5,18 @@ using UnityEngine.UIElements;
 
 public class PlayerMovement : NetworkBehaviour
 {
+    
     Vector2 moveInput;
     PlayerInput playerInput;
 
     public sbyte speed = 5;
+    Collider2D collider;
+    public LayerMask collisionLayers; // Define no Inspector os layers que vai colidir
 
     private void Awake()
     {
         playerInput = new PlayerInput();
+        collider = GetComponent<Collider2D>();
     }
 
     private void OnEnable()
@@ -30,11 +34,22 @@ public class PlayerMovement : NetworkBehaviour
         UnityEngine.InputSystem.InputSystem.Update();
 
         moveInput = playerInput.Player.Move.ReadValue<Vector2>().normalized;
-        
+        Vector2 moveDelta = moveInput * speed * Runner.DeltaTime;
 
-        if (moveInput != Vector2.zero)
+
+        if (moveDelta != Vector2.zero)
         {
-            transform.Translate(moveInput * speed * Runner.DeltaTime);
+            RaycastHit2D hit = Physics2D.BoxCast(transform.position, collider.bounds.size, 0f, moveDelta.normalized, moveDelta.magnitude, collisionLayers);
+
+            if (!hit)
+            {
+                transform.Translate(moveInput * speed * Runner.DeltaTime);
+            }
+            else
+            {
+                // Opcional: pode fazer algo quando colidir, tipo logar
+                Debug.Log("Bateu em: " + hit.collider.name);
+            }
         }
 
         if (playerInput.Player.Jump.triggered)

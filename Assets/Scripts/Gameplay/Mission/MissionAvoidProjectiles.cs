@@ -6,7 +6,12 @@ using UnityEngine;
 public class MissionAvoidProjectiles : Missions
 {
     [Header("Mission 0 - A")]
-    [SerializeField] byte any;
+    bool isInstantiate = false;
+    private Vector2[] directionsProjectitles;
+
+    private int randomsDirections;
+    private int lastRandom;
+    int[] quantityProjectiles = new int[4];
 
     void Start()
     {
@@ -15,6 +20,17 @@ public class MissionAvoidProjectiles : Missions
     void Update()
     {
         StartMission();
+    }
+
+    void SetupDirections()
+    {
+
+    }
+
+    void RandomLocalIntanciete()
+    {
+        randomsDirections = Random.Range(0,4); //cima 
+
     }
 
     protected override void StartMission()

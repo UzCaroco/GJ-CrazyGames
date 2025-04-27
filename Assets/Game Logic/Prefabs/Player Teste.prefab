@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 4932349183661747170}
   - component: {fileID: 5513412297817424867}
   - component: {fileID: 6541648626284903876}
-  - component: {fileID: 1081085120630881784}
+  - component: {fileID: 3939675914494042533}
   m_Layer: 0
   m_Name: Player Teste
   m_TagString: Untagged
@@ -141,7 +141,7 @@ MonoBehaviour:
   NestedObjects: []
   NetworkedBehaviours:
   - {fileID: 6541648626284903876}
-  - {fileID: 1081085120630881784}
+  - {fileID: 3939675914494042533}
   ForceRemoteRenderTimeframe: 0
 --- !u!114 &6541648626284903876
 MonoBehaviour:
@@ -160,7 +160,7 @@ MonoBehaviour:
   SyncParent: 0
   _autoAOIOverride: 1
   DisableSharedModeInterpolation: 0
---- !u!114 &1081085120630881784
+--- !u!114 &3939675914494042533
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -169,7 +169,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 3080110727957388075}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dbfb4499b1d3671469136754acf25afd, type: 3}
+  m_Script: {fileID: 11500000, guid: fcfe2fa49c1d2a94fb9089b73dab131c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 5

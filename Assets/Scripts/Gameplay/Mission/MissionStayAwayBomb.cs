@@ -6,7 +6,10 @@ using UnityEngine;
 public class MissionStayAwayBomb : Missions
 {
     [Header("Mission 6 - SAB")]
-    byte any;
+    private GameObject prefabBomb;
+    private float timeForExplosion;
+    private bool isInitialized;
+
 
     void Start()
     {

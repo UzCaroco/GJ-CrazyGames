@@ -6,6 +6,7 @@ using UnityEngine;
 public class MissionDontMove : Missions
 {
     [Header("Mission 3 - DM")]
+
     byte any;
 
     void Start()
@@ -16,6 +17,12 @@ public class MissionDontMove : Missions
     {
         StartMission();
     }
+
+    void CheckTheMove()
+    {
+        
+    }  
+
     protected override void StartMission()
     {
         Debug.Log("DONT MOVE, Beginning!");

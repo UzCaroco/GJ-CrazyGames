@@ -30,7 +30,6 @@ public class MissionAvoidProjectiles : Missions
     void RandomLocalIntanciete()
     {
         randomsDirections = Random.Range(0,4); //cima 
-
     }
 
     protected override void StartMission()

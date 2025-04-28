@@ -4,6 +4,9 @@ using UnityEngine;
 public class PlayerManager : NetworkBehaviour
 {
     [SerializeField] private NetworkRunner runner;
+    [SerializeField] private bool hasCollision;
+
+    [SerializeField] private Vector2 positionPLayer;
 
     // Start is called before the first frame update
     void Start()
@@ -28,4 +31,14 @@ public class PlayerManager : NetworkBehaviour
             }
         }
     }
+
+    public void SetCollision(bool value)
+    {
+        hasCollision = value;
+    }
+    public bool GetCollision()
+    {
+        return hasCollision;
+    }
+
 }

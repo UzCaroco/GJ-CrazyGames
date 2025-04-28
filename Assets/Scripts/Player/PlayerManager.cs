@@ -3,9 +3,10 @@ using UnityEngine;
 
 public class PlayerManager : NetworkBehaviour
 {
+    [SerializeField] private int score;
+    [SerializeField] private int playerID;
     [SerializeField] private NetworkRunner runner;
     [SerializeField] private bool hasCollision;
-
     [SerializeField] private Vector2 positionPLayer;
 
     // Start is called before the first frame update

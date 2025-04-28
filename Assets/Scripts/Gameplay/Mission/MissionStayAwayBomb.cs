@@ -6,16 +6,16 @@ using UnityEngine;
 public class MissionStayAwayBomb : Missions
 {
     [Header("Mission 6 - SAB")]
-    private GameObject prefabBomb;
+    [SerializeField] private GameObject prefabBomb;
 
-    private bool isInitialized;
+    [SerializeField] private bool isInitialized;
 
-    private byte index;
+    [SerializeField] private byte index;
 
-    private int posXBomb, posYBomb;
-    private int lastXRandom, lastYRandom;
-    private Transform spawnBomb;
-    private bool hasCollision;
+    [SerializeField] private int posXBomb, posYBomb;
+    [SerializeField] private int lastXRandom, lastYRandom;
+    [SerializeField] private Vector2 spawnBomb;
+    [SerializeField] private bool isExploding;
 
     void Start()
     {
@@ -24,35 +24,35 @@ public class MissionStayAwayBomb : Missions
 
     void Update()
     {
-        
+        StartMission();
     }
 
     void DrawPosition()
     {
         while (lastXRandom == posXBomb)
         {
-            lastXRandom = Random.Range(0,100);
+            lastXRandom = Random.Range(-7,7);
         }
 
         while(lastYRandom == posYBomb)
         {
-            lastYRandom = Random.Range(0,100);
+            lastYRandom = Random.Range(-4,4);
         }
 
         posXBomb = lastXRandom;
         posYBomb = lastYRandom;
-        spawnBomb.position = new Vector2(posXBomb, posYBomb);
+        spawnBomb = new Vector2(posXBomb, posYBomb);
     }
 
     void initializeBomb()
     {
-        if (!isInitialized && index <= 5)
+        if (!isInitialized && index < 5)
         {
             DrawPosition();
 
             Debug.Log("Spawndando em X:" + posXBomb + "em Y:" + posYBomb + "sendo a:" + index);
-            GameObject bomb = Instantiate(prefabBomb, spawnBomb.position, transform.rotation);
-            bomb.transform.SetParent(spawnBomb);
+            GameObject bomb = Instantiate(prefabBomb, spawnBomb, transform.rotation);
+            bomb.transform.SetParent(transform);
             isInitialized = true;
             
             StartCoroutine(CountDown());
@@ -66,7 +66,7 @@ public class MissionStayAwayBomb : Missions
 
     IEnumerator CountDown()
     {
-        if (index + 1 < 6)
+        if (index + 1 <= 6)
         {
             index++;
 
@@ -78,7 +78,7 @@ public class MissionStayAwayBomb : Missions
             //index = 0;
         }
 
-        yield return new WaitForSeconds(0.2f);
+        yield return new WaitForSeconds(0.5f);
 
         isInitialized = false;
     }
@@ -87,7 +87,14 @@ public class MissionStayAwayBomb : Missions
     {
         Debug.Log("Stay Away Bomb, Beginning!");
 
-        initializeBomb();
+        if (index == 5)
+        {
+
+        }
+        else 
+        {
+            initializeBomb();
+        }
     }
 
     protected override void CompleteMission()

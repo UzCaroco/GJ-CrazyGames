@@ -23,6 +23,13 @@ public class BombController : NetworkBehaviour
     {
         
     }
+
+
+    public bool GetIsExplode()
+    {
+        return isExplode;
+    }
+    
     void TimeExplode()
     {
         if (isCountDown && timeForExplosion < 5)
@@ -57,6 +64,8 @@ public class BombController : NetworkBehaviour
         isExplode = true;
         isCountDown = false;
     }
+
+    
 
     void OnTriggerEnter2D(Collider2D collision)
     {
